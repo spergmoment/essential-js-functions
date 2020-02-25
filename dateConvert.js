@@ -1,4 +1,15 @@
-function dateConvert() {
+class DateConvertError extends TypeError {
+  constructor(err, ...params) {
+    super(...params);
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, DateConvertError);
+    }
+
+    this.name = 'DateConvertError';
+    this.message = err;
+  }
+}
+function dateConvert(x) {
     var months = [
     'January',
     'February',
@@ -22,15 +33,16 @@ function dateConvert() {
   'Friday',
   'Saturday'
   ];
-    var time = new Date()
+    var time = x;
+    if(!(time instanceof Date)) throw new DateConvertError("The input is not a date.");
     var yr = time.getFullYear();
     var mon = time.getMonth();
     mon = months[mon];
-    var day = time.getDate(); // gets the day, e.g 27
-    var hr = time.getHours(); // gets the current hour, e.g 9, it is in 24 hour time and formatting it to 12 hour time has bad side effects, like making anything ≥ 10 be 0
-    var min = time.getMinutes(); // gets the current minutes, e.g. 12
-    var sec = time.getSeconds(); // gets current seconds, e.g. 34
-    var week = time.getDay(); // gets day of week, e.g. monday
+    var day = time.getDate();
+    var hr = time.getHours();
+    var min = time.getMinutes();
+    var sec = time.getSeconds();
+    var week = time.getDay();
     week = weeks[week];
     if (hr < 10) {
         hr = "0" + hr.toString().charAt(0);

@@ -7,7 +7,7 @@ class DateConvertError extends TypeError {
 
     this.name = 'DateConvertError';
     this.message = err;
-    this.error = "Input constructor is type " + typeof obj + ". Expected constructor Date";
+    this.error = "Input type is " + typeof obj + ". Expected type constructor Date";
   }
 }
 function dateConvert(x) {

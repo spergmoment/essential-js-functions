@@ -7,7 +7,7 @@ class DateConvertError extends TypeError {
 
     this.name = 'DateConvertError';
     this.message = err;
-    this.error = "Input does not match type constructor Date";
+    this.error = "Input constructor " + obj.constructor.toString() + " does not match constructor Date";
   }
 }
 function dateConvert(x) {
@@ -35,7 +35,7 @@ function dateConvert(x) {
   'Saturday'
   ];
     var time = x;
-    if(!(time instanceof Date)) throw new DateConvertError("The input is not a date.", time);
+    if(time.constructor.toString().indexOf("Date") > -1;) throw new DateConvertError("The input is not a date.", time);
     var yr = time.getFullYear();
     var mon = time.getMonth();
     mon = months[mon];

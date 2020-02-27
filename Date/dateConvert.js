@@ -35,7 +35,7 @@ function dateConvert(x) {
   'Saturday'
   ];
     var time = x;
-    if(time.constructor.toString().indexOf("Date") > -1;) throw new DateConvertError("The input is not a date.", time);
+    if(time.constructor.toString().indexOf("Date") > -1) throw new DateConvertError("The input is not a date.", time);
     var yr = time.getFullYear();
     var mon = time.getMonth();
     mon = months[mon];

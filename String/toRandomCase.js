@@ -1,6 +1,7 @@
-function toRandomCase(str) {
-  if(typeof str !== typeof "h") return;
-  let strArr=str.split("");
+String.prototype.toRandomCase = function(s) {
+let c = new String(this);
+  if(typeof c !== typeof this) return "Invalid type.";
+  let strArr=this.split("");
   let newStr = "";
   strArr.forEach(s => {
     if(Math.random() > 0.5) {
@@ -11,4 +12,5 @@ function toRandomCase(str) {
   });
   return newStr;
 }
-console.log(toRandomCase("hello"))
+var h = "hi there how are u";
+console.log(h.toRandomCase());

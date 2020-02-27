@@ -1,12 +1,13 @@
-function hasText(txt, check) {
-  if(txt.indexOf(check)===-1) {
+String.prototype.hasText = function(check) {
+  if(this.indexOf(check)===-1) {
     return false;
   } else {
     return true;
   }
 }
-hasText("Hello how are you?", "how are");
-hasText("Hello how are you?", "I'm good");
+let c = "Hello how are you?";
+console.log(c.hasText("how are"));
+console.log(c.hasText("I'm good"));
 /* Expected output:
 true
 false 

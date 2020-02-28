@@ -1,17 +1,17 @@
-class DateConvertError extends TypeError {
+class ComversionError extends TypeError {
   constructor(err, obj, ...params) {
     super(...params);
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, DateConvertError);
+      Error.captureStackTrace(this, ConversionError);
     }
 
-    this.name = 'DateConvertError';
+    this.name = 'ConversionError from { Date() }';
     this.message = err;
     this.error = "Input constructor " + obj.constructor.toString() + " does not match constructor Date";
   }
 }
-function dateConvert(x) {
-    var months = [
+Date.prototype.convert = function() {
+    let months = [
     'January',
     'February',
     'March',
@@ -25,7 +25,7 @@ function dateConvert(x) {
     'November',
     'December'
   ];
-    var weeks = [
+    let weeks = [
   'Sunday',
   'Monday',
   'Tuesday',
@@ -34,16 +34,17 @@ function dateConvert(x) {
   'Friday',
   'Saturday'
   ];
-    var time = x;
-    if(time.constructor.toString().indexOf("Date") > -1) throw new DateConvertError("The input is not a date.", time);
-    var yr = time.getFullYear();
-    var mon = time.getMonth();
+    let time = this;
+    if(time.constructor.toString().indexOf("Date") > -1) 
+      throw new DateConvertError("The input is not a date.", time);
+    let yr = time.getFullYear();
+    let mon = time.getMonth();
     mon = months[mon];
-    var day = time.getDate();
-    var hr = time.getHours();
-    var min = time.getMinutes();
-    var sec = time.getSeconds();
-    var week = time.getDay();
+    let day = time.getDate();
+    let hr = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    let week = time.getDay();
     week = weeks[week];
     if (hr < 10) {
         hr = "0" + hr.toString().charAt(0);
@@ -56,3 +57,5 @@ function dateConvert(x) {
     }
     return week + ", " + mon + " " + day + ", " + yr + ", at " + hr + ":" + min + ":" + sec;
 }
+let date = new Date();
+console.log(date.convert());

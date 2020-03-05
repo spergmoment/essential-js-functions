@@ -1,7 +1,7 @@
-function nthRoot(x, root) {
+Math.prototype.nthRoot = function(x, root) {
   return Math.pow(x, 1/root);
 }
-console.log(nthRoot(4, 9));
+console.log(Math.nthRoot(4, 9));
 /* Expected output:
 1.1665290395761165
 

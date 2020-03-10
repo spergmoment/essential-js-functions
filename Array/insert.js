@@ -1,4 +1,4 @@
-Array.prototype.insert = function(el, index) {
+Array.prototype.insert = (el, index) => {
   return this.splice(index, 0, el);
 }
 

@@ -1,4 +1,4 @@
-String.prototype.hasText = function(check) {
+String.prototype.hasText = (check) => {
   if(this.indexOf(check)===-1) {
     return false;
   } else {

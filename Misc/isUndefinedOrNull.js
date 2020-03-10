@@ -1,5 +1,5 @@
-function isUndefinedOrNull(obj) {
-  if(obj===undefined||obj===null||obj===""||obj===0||obj===NaN) return true;
+let isUndefinedOrNull = (obj) => {
+  if(!obj) return true;
   return false;
 }
 console.log(isUndefinedOrNull(2))

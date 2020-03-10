@@ -1,10 +1,8 @@
-String.prototype.toRandomCase = function(s) {
-let c = new String(this);
-  if(typeof c !== typeof this) return "Invalid type.";
-  let strArr=this.split("");
+String.prototype.toRandomCase = function() {
+  let strArr = this.split("");
   let newStr = "";
   strArr.forEach(s => {
-    if(Math.random() > 0.5) {
+    if(Math.random() >= 0.5) {
       newStr += s.toUpperCase();
     } else {
       newStr += s.toLowerCase();

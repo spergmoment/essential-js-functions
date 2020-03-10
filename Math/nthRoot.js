@@ -1,4 +1,4 @@
-Math.prototype.nthRoot = function(x, root) {
+Math.nthRoot = (x, root) => {
   return Math.pow(x, 1/root);
 }
 console.log(Math.nthRoot(4, 9));

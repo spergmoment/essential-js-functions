@@ -1,4 +1,4 @@
-Number.prototype.round = function(place) {
+Number.prototype.round = (place) => {
   if(isNaN(this)) return "Input is not a number.";
   let rand = this/place;
   let rand2 = Math.round(rand);

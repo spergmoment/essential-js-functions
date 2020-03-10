@@ -9,7 +9,7 @@ class FormatError extends TypeError {
         this.error = "Input is an invalid date. Failed to format the inputted value.";
     }
 }
-Date.prototype.format = function() {
+Date.prototype.format = () => {
     let months = [
     'January',
     'February',
@@ -65,4 +65,4 @@ console.log(date.format());
 console.log(date2.format());
 /* Expected output:
 (The current date, formatted)
-FormatError: { "The input is not a date." } */
+FormatError { "The input is not a date." } */
